@@ -16,11 +16,25 @@ RSpec.describe Game do
       expect(game.player_2).to eq player_2
     end
   end
-  
+
   describe '#hit' do
     it 'damages the player' do
       expect(player_1).to receive(:receive_damage)
       game.hit(player_1)
     end
   end
+
+  describe '#current_turn' do
+    it 'starts as player 2' do
+      expect(game.current_turn).to eq player_2
+    end
+  end
+
+  describe '#switch_turns' do
+    it 'switches the turn' do
+      game.switch_turns
+      expect(game.current_turn).to eq player_1
+    end
+  end
+
 end
