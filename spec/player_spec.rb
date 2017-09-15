@@ -16,13 +16,6 @@ RSpec.describe Player do
     end
   end
 
-  describe '#hit' do
-    it 'damages the player' do
-      expect(thomas).to receive(:receive_damage)
-      zoe.hit(thomas)
-    end
-  end
-
   describe '#receive_damage' do
     it 'reduces the player hit points' do
       expect { zoe.receive_damage }.to change { zoe.hit_points }.by(-10)
