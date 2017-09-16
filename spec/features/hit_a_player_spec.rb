@@ -12,4 +12,13 @@ feature 'hitting' do
     expect(page).not_to have_content 'Thomas: 60HP'
     expect(page).to have_content 'Thomas: 50HP'
   end
+
+  scenario 'be attacked by Player 1' do
+    sign_in_and_play
+    click_link 'Hit'
+    click_link 'OK'
+    click_link 'Hit'
+    expect(page).not_to have_content 'Thomas HIT Zoe'
+  end
+
 end
